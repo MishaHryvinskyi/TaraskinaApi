@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "title": "Eloquent JavaScript",
+        "author": "Martin Heverbeke"
+    },
+    {
+        "id": 1,
+        "title": "Praktical Modern JavaScript",
+        "author": "Nicolas Bevecqua"
+    },
+    {
+        "id": 2,
+        "title": "Understanding ECMAScript 6",
+        "author": "Nicolas C. Zakas"
+    },
+    {
+        "id": 3,
+        "title": "Speaking JavaScript",
+        "author": "Alex Rashmaiere"
+    }
+]

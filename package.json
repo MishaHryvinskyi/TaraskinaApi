@@ -1,0 +1,20 @@
+{
+  "name": "taraskinaapi",
+  "version": "1.0.0",
+  "description": "API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "GryvinskyiMykhailo",
+  "license": "ISC",
+  "engines": {
+    "node": "18.16.1",
+    "npm": "9.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1"
+  }
+}
