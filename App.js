@@ -1,11 +1,20 @@
-const works = require('./books');
+const express = require("express");
+const books =require("./books/book");
 
-const invokeAction = async ({ action, id, name, year }) => {
-    switch (action) {
-        case "read":
-           const allWorks = await works.getAll();
-           return console.log(allWorks);
-    }
-}
+const app = express(); // app - веб-сервер
 
-invokeAction({ action: "read"});
+app.use((req, res, next) => {
+    next();
+});
+
+app.get("/books", (req, res) => {
+    res.json(books);
+});
+
+app.use((req, res) => {
+    res.status(404).json({ 
+        message: "Not Found" 
+    });
+})
+
+app.listen(3000);
