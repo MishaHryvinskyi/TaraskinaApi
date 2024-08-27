@@ -1,14 +1,15 @@
-const paints = require("../paints/index");
+
+const { Paint } = require("../models/paint");
 const { HttpError, ctrlWrapper } = require("../helpers");
 
 const getAll = async(req, res) => {
-    const result = await paints.getAll();
+    const result = await Paint.find({}, "-createdAt -updatedAt");
     res.json(result);
 };
 
 const getById = async(req, res) => {
     const { id } = req.params;
-    const result = await paints.getById(id);
+    const result = await Paint.findById(id);
     if(!result) {
         throw HttpError(404, "Not found");
     }
@@ -16,13 +17,13 @@ const getById = async(req, res) => {
 };
 
 const add = async(req, res) => {
-    const result = await paints.add(req.body);
+    const result = await Paint.create(req.body);
     res.status(201).json(result);
 };
 
 const updateById = async(req, res) => {
     const { id } = req.params;
-    const result = await paints.updateById(id, req.body);
+    const result = await Paint.findByIdAndUpdate(id, req.body, { new: true });
     if(!result) {
         throw HttpError(404, "Not found");
     }
@@ -31,7 +32,7 @@ const updateById = async(req, res) => {
 
 const deleteById =  async(req, res) => {
     const { id } = req.params;
-        const result = await paints.deleteById(id);
+        const result = await Paint.findByIdAndDelete(id);
         if(!result) {
             throw HttpError(404, "Not found");
         }
