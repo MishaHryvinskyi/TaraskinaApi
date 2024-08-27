@@ -1,11 +1,11 @@
 const express = require("express");
 
-const ctrl = require("../../controllers/books");
+const ctrl = require("../../controllers/paints");
 
 const router = express.Router();
 
 const { validateBody } = require("../../middlewares");
-const schemas = require("../../schemas/books");
+const schemas = require("../../schemas/paints");
 
 router.get("/", ctrl.getAll);
 

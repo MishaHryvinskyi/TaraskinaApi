@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const booksRouter = require("./routes/api/books");
+const paintsRouter = require("./routes/api/paints");
 require("dotenv").config();
 
 const app = express(); // app - веб-сервер
@@ -8,7 +8,7 @@ const app = express(); // app - веб-сервер
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/books", booksRouter);
+app.use("/api/paints", paintsRouter);
 
 app.use((req, res) => {
     res.status(404).json({ message: 'Not found' });

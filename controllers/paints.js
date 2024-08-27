@@ -1,14 +1,14 @@
-const books = require("../books/index");
+const paints = require("../paints/index");
 const { HttpError, ctrlWrapper } = require("../helpers");
 
 const getAll = async(req, res) => {
-    const result = await books.getAll();
+    const result = await paints.getAll();
     res.json(result);
 };
 
 const getById = async(req, res) => {
     const { id } = req.params;
-    const result = await books.getById(id);
+    const result = await paints.getById(id);
     if(!result) {
         throw HttpError(404, "Not found");
     }
@@ -16,13 +16,13 @@ const getById = async(req, res) => {
 };
 
 const add = async(req, res) => {
-    const result = await books.add(req.body);
+    const result = await paints.add(req.body);
     res.status(201).json(result);
 };
 
 const updateById = async(req, res) => {
     const { id } = req.params;
-    const result = await books.updateById(id, req.body);
+    const result = await paints.updateById(id, req.body);
     if(!result) {
         throw HttpError(404, "Not found");
     }
@@ -31,7 +31,7 @@ const updateById = async(req, res) => {
 
 const deleteById =  async(req, res) => {
     const { id } = req.params;
-        const result = await books.deleteById(id);
+        const result = await paints.deleteById(id);
         if(!result) {
             throw HttpError(404, "Not found");
         }
